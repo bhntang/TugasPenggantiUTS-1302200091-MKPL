@@ -1,6 +1,11 @@
 package lib;
 
 public class TaxFunction {
+	
+	private static final int BASE_NON_TAXABLE_INCOME = 54000000;
+    private static final int MARRIED_NON_TAXABLE_INCOME_ADDITION = 4500000;
+    private static final int CHILD_NON_TAXABLE_INCOME_ADDITION = 1500000;
+    private static final int MAX_CHILD_COUNT_FOR_TAX_DEDUCTION = 3;
 
 	
 	/**
@@ -15,6 +20,7 @@ public class TaxFunction {
 	 */
 	
 	
+<<<<<<< Updated upstream
 	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
 		
 		int tax = 0;
@@ -40,5 +46,31 @@ public class TaxFunction {
 		}
 			 
 	}
+=======
+	 public static int calculateTax(TaxCalculationParams params) {
+        int tax = 0;
+        if (params.getNumberOfMonthWorking() > 12) {
+            System.err.println("More than 12 month working per year");
+        }
+
+        int numberOfChildren = params.getNumberOfChildren();
+        if (numberOfChildren > MAX_CHILD_COUNT_FOR_TAX_DEDUCTION) {
+            numberOfChildren = MAX_CHILD_COUNT_FOR_TAX_DEDUCTION;
+        }
+
+        if (params.isMarried()) {
+            tax = (int) Math.round(0.05 * (((params.getMonthlySalary() + params.getOtherMonthlyIncome()) * params.getNumberOfMonthWorking()) - params.getDeductible() - (BASE_NON_TAXABLE_INCOME + MARRIED_NON_TAXABLE_INCOME_ADDITION + (numberOfChildren * CHILD_NON_TAXABLE_INCOME_ADDITION))));
+        } else {
+            tax = (int) Math.round(0.05 * (((params.getMonthlySalary() + params.getOtherMonthlyIncome()) * params.getNumberOfMonthWorking()) - params.getDeductible() - BASE_NON_TAXABLE_INCOME));
+        }
+
+        if (tax < 0) {
+            return 0;
+        } else {
+            return tax;
+        }
+
+    }
+>>>>>>> Stashed changes
 	
 }
