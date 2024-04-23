@@ -23,7 +23,19 @@ public class EmployeeData {
     private List<String> childNames;
     private List<String> childIdNumbers;
 
-    // Constructors, getters, and setters
+    
+    public EmployeeData(String employeeId, String firstName, String lastName, String idNumber, String address, Date joinDate, boolean isForeigner, boolean gender) {
+        this.employeeId = employeeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.idNumber = idNumber;
+        this.address = address;
+        this.joinDate = joinDate;
+        this.isForeigner = isForeigner;
+        this.gender = gender;
+        childNames = new LinkedList<>();
+        childIdNumbers = new LinkedList<>();
+    }
 
     public boolean isForeigner() {
         return isForeigner;

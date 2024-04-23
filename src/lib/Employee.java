@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Employee {
+	
     private EmployeeData employeeData;
     private SalaryCalculator salaryCalculator;
     private TaxCalculator taxCalculator;
