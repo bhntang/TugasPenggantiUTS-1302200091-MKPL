@@ -20,33 +20,7 @@ public class TaxFunction {
 	 */
 	
 	
-<<<<<<< Updated upstream
-	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
-		
-		int tax = 0;
-		
-		if (numberOfMonthWorking > 12) {
-			System.err.println("More than 12 month working per year");
-		}
-		
-		if (numberOfChildren > 3) {
-			numberOfChildren = 3;
-		}
-		
-		if (isMarried) {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - (54000000 + 4500000 + (numberOfChildren * 1500000))));
-		}else {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - 54000000));
-		}
-		
-		if (tax < 0) {
-			return 0;
-		}else {
-			return tax;
-		}
-			 
-	}
-=======
+
 	 public static int calculateTax(TaxCalculationParams params) {
         int tax = 0;
         if (params.getNumberOfMonthWorking() > 12) {
@@ -54,14 +28,14 @@ public class TaxFunction {
         }
 
         int numberOfChildren = params.getNumberOfChildren();
-        if (numberOfChildren > MAX_CHILD_COUNT_FOR_TAX_DEDUCTION) {
-            numberOfChildren = MAX_CHILD_COUNT_FOR_TAX_DEDUCTION;
+        if (numberOfChildren > 3) {
+            numberOfChildren = 3;
         }
 
         if (params.isMarried()) {
-            tax = (int) Math.round(0.05 * (((params.getMonthlySalary() + params.getOtherMonthlyIncome()) * params.getNumberOfMonthWorking()) - params.getDeductible() - (BASE_NON_TAXABLE_INCOME + MARRIED_NON_TAXABLE_INCOME_ADDITION + (numberOfChildren * CHILD_NON_TAXABLE_INCOME_ADDITION))));
+            tax = (int) Math.round(0.05 * (((params.getMonthlySalary() + params.getOtherMonthlyIncome()) * params.getNumberOfMonthWorking()) - params.getDeductible() - (54000000 + 4500000 + (numberOfChildren * 1500000))));
         } else {
-            tax = (int) Math.round(0.05 * (((params.getMonthlySalary() + params.getOtherMonthlyIncome()) * params.getNumberOfMonthWorking()) - params.getDeductible() - BASE_NON_TAXABLE_INCOME));
+            tax = (int) Math.round(0.05 * (((params.getMonthlySalary() + params.getOtherMonthlyIncome()) * params.getNumberOfMonthWorking()) - params.getDeductible() - 54000000));
         }
 
         if (tax < 0) {
@@ -69,8 +43,8 @@ public class TaxFunction {
         } else {
             return tax;
         }
-
+		
     }
->>>>>>> Stashed changes
+
 	
 }
