@@ -1,6 +1,11 @@
 package lib;
 
 public class TaxFunction {
+	
+	private static final int BASE_NON_TAXABLE_INCOME = 54000000;
+    private static final int MARRIED_NON_TAXABLE_INCOME_ADDITION = 4500000;
+    private static final int CHILD_NON_TAXABLE_INCOME_ADDITION = 1500000;
+    private static final int MAX_CHILD_COUNT_FOR_TAX_DEDUCTION = 3;
 
 	
 	/**
@@ -15,6 +20,7 @@ public class TaxFunction {
 	 */
 	
 	
+
 	 public static int calculateTax(TaxCalculationParams params) {
         int tax = 0;
         if (params.getNumberOfMonthWorking() > 12) {
@@ -39,5 +45,6 @@ public class TaxFunction {
         }
 		
     }
+
 	
 }
