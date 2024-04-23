@@ -1,5 +1,6 @@
 // package ini untuk menyimpan data Employe kayak nama, alamat, tangggal joinnya dan lainnya
 
+
 package lib;
 
 import java.util.LinkedList;

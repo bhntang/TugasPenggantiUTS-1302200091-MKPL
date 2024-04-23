@@ -5,3 +5,4 @@ public class SalaryCalculator {
 }
 
 // untuk ngitung gaji bulanan Employee
+

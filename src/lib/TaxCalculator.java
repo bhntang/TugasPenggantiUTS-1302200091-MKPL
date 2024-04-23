@@ -5,3 +5,4 @@ public class TaxCalculator {
 }
 
 // intuk ngitung pajak penghasilan Employee
+
